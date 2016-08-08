@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <!--悦音乐APP-->
+        <activity
+            android:name="com.yueyinyue.home.yueyinyue.MainActivity"
+            android:configChanges="orientation"
+            android:label="@string/myappname"
+            android:theme="@style/Door2AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

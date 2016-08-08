@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="handler"
+            type="com.yueyinyue.home.Pagerfragment.MusicItemHandler"/>
+        <variable
+            name="musicDlRecord"
+            type="com.yueyinyue.Model.dao.MusicDl.MusicDlRecord"/>
+        <variable
+            name="musicInfo"
+            type="com.cmsc.cmmusic.common.data.MusicInfo"/>
+
+    </data>
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/upperlinearlayout"
+            android:onClick="@{handler.onUpperLinearLayout}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/songlogo"
+                android:clickable="false"
+                android:layout_width="@dimen/songlogoimagesize"
+                android:layout_height="@dimen/songlogoimagesize"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/play_item"
+                android:src="@drawable/icon"
+                app:siBorderColor="@null"
+                app:siBorderWidth="0dp"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="@dimen/media_item_text_margin_start"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/songname"
+                    android:clickable="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{musicInfo.getSongName()}"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+                <TextView
+                    android:id="@+id/singername"
+                    android:clickable="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{musicInfo.getSingerName()}"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.yueyinyue.home.Pagerfragment.LowerLinearlayout
+            android:id="@+id/lowerlinearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp">
+
+            <com.dd.processbutton.iml.SubmitProcessButton
+                android:id="@+id/trylisten"
+                android:onClick="@{handler.onTryListenButton}"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:minWidth="100dp"
+                android:text="@string/trylisten"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_weight="1"/>
+
+            <com.dd.processbutton.iml.SubmitProcessButton
+                android:id="@+id/fulldownloadButton"
+                android:onClick="@{musicDlRecord!=null &amp;&amp; musicDlRecord.getFullSongDlPercentage()==100?handler.onPlayFullSong:handler.onFullDownload}"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginLeft="3dp"
+                android:minWidth="100dp"
+                tools:text="@string/fulldownload"
+                android:text="@{musicDlRecord!=null &amp;&amp; musicDlRecord.getFullSongDlPercentage()==100?@string/fullPlay:@string/fulldownload}"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                custom:pb_textComplete="@string/haveDownloaded"
+                custom:pb_textProgress="@string/downloading"
+                android:layout_weight="1"/>
+
+            <com.dd.processbutton.iml.SubmitProcessButton
+                android:id="@+id/setvibrateringButton"
+                android:onClick="@{musicDlRecord!=null &amp;&amp; musicDlRecord.getVibrateRingDlPercentage()==100?handler.onSetVibrateRing:handler.onDownloadVibrateRing}"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:minWidth="100dp"
+                android:text="@{musicDlRecord!=null &amp;&amp; musicDlRecord.getVibrateRingDlPercentage()==100?@string/setVibrateRing:@string/vibrateRingDownload}"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                custom:pb_textComplete="@string/haveDownloaded"
+                custom:pb_textProgress="@string/downloading"
+                android:layout_weight="1"/>
+
+            <com.dd.processbutton.iml.SubmitProcessButton
+                android:id="@+id/setcolorring"
+                android:onClick="@{handler.onsetColorRingButton}"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:minWidth="100dp"
+                android:text="@string/setcolorring"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_weight="1"/>
+        </com.yueyinyue.home.Pagerfragment.LowerLinearlayout>
+    </LinearLayout>
+</layout>
+

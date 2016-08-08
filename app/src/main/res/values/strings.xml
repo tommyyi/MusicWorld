@@ -1,0 +1,38 @@
+<resources>
+    <string name="myappname">聚乐堂</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="play_item">Play item</string>
+    <string name="trylisten">试听</string>
+    <string name="fulldownload">全曲下载</string>
+    <string name="fullPlay">全曲播放</string>
+    <string name="haveDownloaded">已下载</string>
+    <string name="downloading">下载中</string>
+    <string name="setcolorring">设置彩铃</string>
+    <string name="orderring">订购彩铃</string>
+    <string name="own_ring_month">彩铃包月</string>
+    <string name="openringback">开通彩铃</string>
+    <string name="setVibrateRing">设置振铃</string>
+    <string name="go2myDownload">前往我的下载</string>
+    <string name="myDown">我的下载</string>
+    <string name="myTry">我的试听</string>
+    <string name="title_activity_my_download">MyDownloadActivity</string>
+
+    <string name="vibrateRingDownload">振铃下载</string>
+    <string name="buymusicswithtwoyuan">2元任意2首</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="serviceIntro">业务介绍：独家专享的时尚流行音乐，订购%1$s业务，可批量下载任意%2$s首歌曲</string>
+    <string name="serviceFee">业务资费：%1$s元/次</string>
+    <string name="serviceFee_month">业务资费：%1$s元/月</string>
+
+    <string name="inputContent">输入您要搜索的内容</string>
+    <string name="openDrawer">opendrawer</string>
+    <string name="closeDrawer">closedrawer</string>
+    <string name="stringSeparator"> / </string>
+    <string name="playCenterCurrentTime">00:00</string>
+    <string name="myDisplayed">历史浏览记录</string>
+    <string name="pleasePressButton2getAddress">按确认按钮获取（第%1$s首）下载地址</string>
+    <string name="already_download">，该音乐已下载</string>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:activity="com.yueyinyue.search.SearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/musicarea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.arlib.floatingsearchview.FloatingSearchView
+                android:id="@+id/floating_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:floatingSearch_backgroundColor="@null"
+                app:floatingSearch_dismissOnOutsideTouch="true"
+                app:floatingSearch_hideOverflowMenuWhenFocused="true"
+                app:floatingSearch_menu="@null"
+                app:floatingSearch_searchBarMarginLeft="@dimen/search_view_inset"
+                app:floatingSearch_searchBarMarginRight="@dimen/search_view_inset"
+                app:floatingSearch_searchBarMarginTop="@dimen/search_view_inset"
+                app:floatingSearch_searchHint="@string/inputContent"
+                app:floatingSearch_showMenuAction="false"
+                app:floatingSearch_showOverFlowMenu="true"
+                app:floatingSearch_showSearchKey="true"
+                app:floatingSearch_showVoiceInput="false"
+                app:floatingSearch_voiceRecHint="Say something..."/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <include
+                android:id="@+id/playcenter"
+                layout="@layout/playcenter"/>
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/cancel"
+            android:onClick="onCloseSearchActivityClick"
+            />
+
+    </RelativeLayout>
+</layout>

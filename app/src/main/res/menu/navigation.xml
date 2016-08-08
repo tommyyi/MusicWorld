@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/myDownload"
+            android:icon="@drawable/mydownload"
+            android:onClick="onGo2dlActivity"
+            android:title="@string/myDown"/>
+        <item
+            android:id="@+id/myTryListen"
+            android:icon="@drawable/mytrylisten"
+            android:title="@string/myTry"/>
+    </group>
+
+    <item
+        android:id="@+id/myDisplayed"
+        android:icon="@drawable/history"
+        android:title="@string/myDisplayed"/>
+</menu>

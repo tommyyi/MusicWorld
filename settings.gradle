@@ -1,0 +1,21 @@
+include ':app'
+//include ':CMMUSIC-JULETANG'
+//project(':CMMUSIC-JULETANG').projectDir = new File('D:/CODE/MusicAPP/CMMUSIC-SDK-Common-Demo-JULETANG')
+include ':CMMUSIC-2.0.2'
+project(':CMMUSIC-2.0.2').projectDir = new File('D:\\CODE\\MusicAPP\\CMMUSIC2.0.2\\app')
+/*include ':materialviewpagercontroller'
+project(':materialviewpagercontroller').projectDir = new File('D:\\CODE\\MusicAPP\\MaterialViewPager-master\\materialviewpagercontroller')
+include ':materialviewpager'
+project(':materialviewpager').projectDir = new File('D:\\CODE\\MusicAPP\\MaterialViewPager-master\\materialviewpager')*/
+include ':easydaogenerator'
+project(':easydaogenerator').projectDir = new File('D:\\CODE\\MusicAPP\\DAO\\easydaogenerator')
+include ':materialcheckbox'
+project(':materialcheckbox').projectDir = new File('D:\\CODE\\MusicAPP\\MaterialCheckBoxx-master\\materialcheckbox')
+include ':floatingsearchview'
+project(':floatingsearchview').projectDir = new File('D:\\CODE\\MusicAPP\\floatingsearchview\\library')
+include ':libAudioWife'
+project(':libAudioWife').projectDir = new File('D:\\CODE\\MusicAPP\\audio-wife\\libAudioWife\\app')
+include ':libLoadingToast'
+project(':libLoadingToast').projectDir = new File('D:\\CODE\\MusicAPP\\loadtoast-master\\loadtoast')
+//include ':forerunner'
+//project(':forerunner').projectDir = new File('D:\\CODE\\Advertisement\\forerunner')

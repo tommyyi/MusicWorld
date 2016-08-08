@@ -1,0 +1,286 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+    }
+}
+
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    signingConfigs {
+        keyconfig {
+            keyAlias 'xhzj'
+            keyPassword '123456'
+            storeFile file('D:/CODE/MusicAPP/MusicJuLeTang/音乐相关/keystore19.keystore')
+            storePassword '123456'
+        }
+        tianyi {
+            keyAlias 'android.keystore'
+            keyPassword '123456'
+            storeFile file('C:/Program Files/Java/jdk1.8.0_91/bin/android.keystore')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+    dataBinding {
+        enabled = true
+    }
+    productFlavors {
+        YueYinYueConfig {
+            minSdkVersion 10
+            applicationId 'com.yueyinyue.pleaseyou'
+            versionCode 26
+            versionName '1.3'
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.yueyinyue.pleaseyou.test'
+            signingConfig signingConfigs.tianyi
+
+            //悦音乐APP参数 (闪耀人生)
+            manifestPlaceholders = [miguopen_appid: "appid:009198455268065900",
+                                    miguopen_chcode: "chcode:014A1IB",
+                                    categoryArray: "悦音乐30元流行前线音乐,悦音乐10元车载发烧音乐",
+                                    limitedArray: "30,10",
+                                    price: "30,10",
+                                    serviceIdArray: "serviceId:633544Z01000100002,633544Z01000100003"]
+        }
+
+        TianLaiZhiShengConfig {
+            minSdkVersion 10
+            applicationId 'com.xk.tianlaizhisheng'
+            versionCode 26
+            versionName '1.0.2'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.tianlaizhisheng.test'
+
+            //天籁之音APP参数 （晨光讯飞和南光文化）
+            manifestPlaceholders = [miguopen_appid: "appid:008251459113267614",
+                                    miguopen_chcode: "chcode:014A1HJ",
+                                    categoryArray: "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
+                                    limitedArray: "6,10,20",
+                                    price: "6,10,20",
+                                    serviceIdArray: "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002"]
+        }
+
+        TianLaiZhiShengConfig2 {
+            minSdkVersion 10
+            applicationId 'com.xk.tianlaizhisheng2'
+            versionCode 26
+            versionName '1.0.2'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.tianlaizhisheng.test'
+
+            //天籁之音2APP参数 （晨光讯飞和南光文化）
+            manifestPlaceholders = [miguopen_appid: "appid:007560527263607847",
+                                    miguopen_chcode: "chcode:014A101",
+                                    categoryArray: "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
+                                    limitedArray: "6,10,20",
+                                    price: "6,10,20",
+                                    serviceIdArray: "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002",
+                                    INCLUDECP: "false"]
+        }
+
+        JuLeTangConfig {
+            minSdkVersion 10
+            applicationId 'com.xk.m'
+            versionCode 25
+            versionName '1.0.1'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.m.test'
+
+            //聚乐堂APP参数 （闪耀人生）
+            manifestPlaceholders = [miguopen_appid: "appid:005492445194367602",
+                                    miguopen_chcode: "chcode:014A1HA",
+                                    categoryArray: "享受最前沿,聚乐10元按次包",
+                                    limitedArray: "6,10",
+                                    price: "6,10",
+                                    serviceIdArray: "serviceId:600967020000006653,633544Z01000100001"]
+        }
+        JuLeTangConfig2 {
+            minSdkVersion 10
+            applicationId 'com.xk.m2'
+            versionCode 25
+            versionName '1.0.1'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.m2.test'
+
+            //聚乐堂2APP参数 （闪耀人生）
+            manifestPlaceholders = [miguopen_appid: "appid:001249525992608387",
+                                    miguopen_chcode: "chcode:014A101",
+                                    categoryArray: "享受最前沿,聚乐10元按次包",
+                                    limitedArray: "6,10",
+                                    price: "6,10",
+                                    serviceIdArray: "serviceId:600967020000006653,633544Z01000100001",
+                                    INCLUDECP: "false"]
+        }
+    }
+
+    applicationVariants.all ({ variant ->
+        variant.outputs.each ({ output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 输出apk名称为app-YueYinYueConfig-release_v1.3_2016-08-05.apk
+                def fileName = "_v${variant.productFlavors[0].versionName}_${releaseTime()}.apk"
+                output.outputFile = new File(outputFile.parent, outputFile.name.replace(".apk", fileName))
+                //changeManifest(output.outputFile.name)
+            }
+        })
+    })
+
+
+    buildTypes {
+        debug {
+            //buildConfigField "boolean", "INCLUDECP", "true"
+            debuggable true
+            zipAlignEnabled true
+        }
+        release {
+            //buildConfigField "boolean", "INCLUDECP", "false"
+            debuggable false
+            zipAlignEnabled true
+        }
+    }
+    defaultConfig {}
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile('com.crashlytics.sdk.android:crashlytics:2.4.0@aar') {
+        transitive = true;
+    }
+    compile('com.github.florent37:materialviewpager:1.1.3@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    //compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.dexafree:materiallist:3.1.2'
+    //    compile 'net.steamcrafted:load-toast:1.0.9'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    compile 'cn.aigestudio.downloader:Downloader:1.4.0'
+    compile 'de.greenrobot:greendao:1.3.7'
+    compile 'jp.wasabeef:recyclerview-animators:2.0.1'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.1@aar'
+    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+    compile 'com.github.orangegangsters:swipy:1.2.1@aar'
+    compile 'me.drakeet.materialdialog:library:1.2.8'
+    compile 'com.romainpiel.shimmer:library:1.4.0@aar'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.alibaba:fastjson:1.2.7'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.github.yoojia:fire-eye:2.2@aar'
+    compile project(':materialcheckbox')
+    compile project(':floatingsearchview')
+    compile project(':CMMUSIC-2.0.2')
+    compile project(':libAudioWife')
+    //    compile project(':forerunner')
+
+    //ADD THESE LINES:
+    testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test:runner:0.4.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+    androidTestCompile('com.android.support.test:rules:0.4.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+    /*debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+                                                // or 1.4-beta2
+                                                releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+                                                // or 1.4-beta2
+                                                testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+                                                // or 1.4-beta2*/
+    compile 'com.android.support:support-annotations:23.4.0'
+    compile project(':libLoadingToast')
+}
+
+String releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+def buildTime() {
+    def df = new SimpleDateFormat("yyMMddHHmmss")
+    df.setTimeZone(TimeZone.getTimeZone("UTC+08:00"))
+    return df.format(new Date())
+}
+
+def apkSuffix() {
+    def df = new SimpleDateFormat("yyMMdd")
+    df.setTimeZone(TimeZone.getTimeZone("UTC+08:00"))
+    return df.format(new Date())
+}
+
+def changeManifest(String replace) {
+    String file="D:\\CODE\\MusicAPP\\MusicJuLeTang\\app\\src\\main\\AndroidManifest.xml";
+
+    FileInputStream fileInputStream = new FileInputStream(file);
+    byte[] buffer=new byte[fileInputStream.available()];
+    System.out.println(buffer.length+"\r\n");
+    fileInputStream.read(buffer);
+    fileInputStream.close();
+
+    String content=new String(buffer);
+    System.out.println(content+"\r\n");
+
+    String first="<meta-data android:name=\"test\" android:value=\"";
+    String second="\"/>";
+    String keyValue = content.split(first)[1].split(second)[0];
+
+    String str1=first+keyValue+second;
+    String str2=first+replace+second;
+    content=content.replace(str1,str2);
+
+    System.out.println(content+"\r\n");
+
+    FileOutputStream fileOutputStream=new FileOutputStream(file);
+    buffer=content.getBytes();
+    fileOutputStream.write(buffer);
+    fileOutputStream.close();
+}
+///*
+//All direct/transitive dependencies shared between your test and production APKs need to be
+//excluded from the test APK! This is necessary because both APKs will contain the same classes. Not
+//excluding these dependencies from your test configuration will result in an dex pre-verifier error
+//at runtime. More info in this tools bug: (https://code.google.com/p/android/issues/detail?id=192497)
+//*/
+//configurations.compile.dependencies.each { compileDependency ->
+//    println "Excluding compile dependency: ${compileDependency.getName()}"
+//    configurations.androidTestCompile.dependencies.each { androidTestCompileDependency ->
+//        configurations.androidTestCompile.exclude module: "${compileDependency.getName()}"
+//    }
+//}

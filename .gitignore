@@ -1,0 +1,11 @@
+
+/build/
+/LICENSE
+/.idea/
+/gradle.properties
+/gradlew
+/.travis.yml
+/local.properties
+/gradle/
+/.gradle/
+/gradlew.bat
