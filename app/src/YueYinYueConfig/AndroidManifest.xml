@@ -3,6 +3,7 @@
 
     <application android:name="com.yueyinyue.pleaseyou.YueApplication">
 
+        <meta-data android:name="miguopen_excode" android:value="excode:1234" />
         <!--悦音乐APP-->
         <activity
             android:name="com.yueyinyue.home.yueyinyue.MainActivity"
