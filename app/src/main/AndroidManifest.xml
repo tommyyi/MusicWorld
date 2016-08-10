@@ -13,7 +13,6 @@
     <uses-sdk tools:overrideLibrary="com.dd.processbutton, jp.wasabeef.recyclerview, com.romainpiel.shimmer, com.getbase.floatingactionbutton, com.github.yoojia.fireeye,com.arlib.floatingsearchview, me.grantland.widget,com.bartoszlipinski.viewpropertyobjectanimator,com.dexafree.materialList"/>
 
     <application
-        android:name="com.yueyinyue.YueApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         tools:replace="android:label"

@@ -1,7 +1,7 @@
 package com.yueyinyue.home.Pagerfragment.Model;
 
 import com.cmsc.cmmusic.common.data.MusicInfo;
-import com.yueyinyue.YueApplication;
+import com.yueyinyue.DbSession;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecord;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecordDao;
 
@@ -26,7 +26,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
     public MusicDlRecord getMusicDlRecord(String musicId)
     {
         WhereCondition text = MusicDlRecordDao.Properties.MusicId.eq(musicId);
-        QueryBuilder queryBuilder = YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
+        QueryBuilder queryBuilder = DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
         Query query = queryBuilder.where(text).build();
 
         //查询结果以 List 返回
@@ -57,7 +57,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
         musicDlRecord.setVibrateRingFileName(" ");
         musicDlRecord.setVibrateRingDlPercentage(0);
 
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().insert(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().insert(musicDlRecord);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
             if (file.exists())
                 file.delete();
             musicDlRecord.setFullSongDlPercentage(0);
-            YueApplication.musicDlRecordDaoSession.update(musicDlRecord);
+            DbSession.musicDlRecordDaoSession.update(musicDlRecord);
             isRight=false;
         }
 
@@ -82,7 +82,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
                 file.delete();
             }
             musicDlRecord.setVibrateRingDlPercentage(0);
-            YueApplication.musicDlRecordDaoSession.update(musicDlRecord);
+            DbSession.musicDlRecordDaoSession.update(musicDlRecord);
             isRight=false;
         }
 
@@ -94,7 +94,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setFullSongFileName(fileName);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setVibrateRingFileName(fileName);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setFullSongDlPercentage(progress);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 
     @Override
@@ -118,6 +118,6 @@ public class MusicDlRecordModel implements MusicDlRecordModelImp
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setVibrateRingDlPercentage(progress);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 }

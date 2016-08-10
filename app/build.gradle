@@ -90,7 +90,7 @@ android {
 
             //天籁之音2APP参数 （晨光讯飞和南光文化）
             manifestPlaceholders = [miguopen_appid: "appid:007560527263607847",
-                                    miguopen_chcode: "chcode:014A101",
+                                    miguopen_chcode: "chcode:014A1MY",
                                     categoryArray: "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
                                     limitedArray: "6,10,20",
                                     price: "6,10,20",

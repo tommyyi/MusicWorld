@@ -3,7 +3,7 @@ package com.yueyinyue.Model;
 import android.content.Context;
 
 import com.alibaba.fastjson.JSONArray;
-import com.yueyinyue.YueApplication;
+import com.yueyinyue.DbSession;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecord;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecordDao;
 
@@ -43,7 +43,7 @@ public class MusicItem
 
         WhereCondition fullSongCondition= MusicDlRecordDao.Properties.FullSongDlPercentage.eq(100);
         WhereCondition vibrateRingCondition= MusicDlRecordDao.Properties.VibrateRingDlPercentage.eq(100);
-        QueryBuilder queryBuilder = YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
+        QueryBuilder queryBuilder = DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
         Query query = queryBuilder.where(queryBuilder.or(fullSongCondition, vibrateRingCondition)).build();
         List<MusicDlRecord> musicDlRecordList=query.list();
 
@@ -82,7 +82,7 @@ public class MusicItem
 
         WhereCondition fullSongCondition= MusicDlRecordDao.Properties.FullSongDlPercentage.eq(100);
         WhereCondition vibrateRingCondition= MusicDlRecordDao.Properties.VibrateRingDlPercentage.eq(100);
-        QueryBuilder queryBuilder = YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
+        QueryBuilder queryBuilder = DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
         Query query = queryBuilder.where(queryBuilder.or(fullSongCondition, vibrateRingCondition)).build();
         List<MusicDlRecord> musicDlRecordList=query.list();
 

@@ -2,7 +2,7 @@ package com.yueyinyue.cp.dialog.download.model;
 
 import android.content.Context;
 
-import com.yueyinyue.YueApplication;
+import com.yueyinyue.DbSession;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecord;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecordDao;
 
@@ -28,7 +28,7 @@ public class DownloadModel implements DownloadModelImpl
     public MusicDlRecord getMusicDlRecord(String musicId)
     {
         WhereCondition text = MusicDlRecordDao.Properties.MusicId.eq(musicId);
-        QueryBuilder queryBuilder = YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
+        QueryBuilder queryBuilder = DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
         Query query = queryBuilder.where(text).build();
 
         //查询结果以 List 返回
@@ -48,7 +48,7 @@ public class DownloadModel implements DownloadModelImpl
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setFullSongFileName(fileName);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class DownloadModel implements DownloadModelImpl
     {
         MusicDlRecord musicDlRecord = getMusicDlRecord(musicId);
         musicDlRecord.setFullSongDlPercentage(progress);
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().update(musicDlRecord);
     }
 
     @Override
@@ -75,6 +75,6 @@ public class DownloadModel implements DownloadModelImpl
         musicDlRecord.setVibrateRingFileName(" ");
         musicDlRecord.setVibrateRingDlPercentage(0);
 
-        YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().insert(musicDlRecord);
+        DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().insert(musicDlRecord);
     }
 }

@@ -9,8 +9,7 @@ import android.view.View;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 import com.xk.m.R;
 import com.xk.m.databinding.ActivityMydownloadBinding;
-import com.yueyinyue.Model.EventBusMessage.PlayMusicMessage;
-import com.yueyinyue.YueApplication;
+import com.yueyinyue.DbSession;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecord;
 import com.yueyinyue.Model.dao.MusicDl.MusicDlRecordDao;
 import com.yueyinyue.BaseActivity;
@@ -71,7 +70,7 @@ public class MyDownloadActivity extends BaseActivity
             {
                 WhereCondition fullSongCondition= MusicDlRecordDao.Properties.FullSongDlPercentage.eq(100);
                 WhereCondition vibrateRingCondition= MusicDlRecordDao.Properties.VibrateRingDlPercentage.eq(100);
-                QueryBuilder queryBuilder = YueApplication.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
+                QueryBuilder queryBuilder = DbSession.musicDlRecordDaoSession.getMusicDlRecordDao().queryBuilder();
                 Query query = queryBuilder.where(queryBuilder.or(fullSongCondition, vibrateRingCondition)).build();
                 List<MusicDlRecord> addedMusicDlRecordList=query.list();
                 musicDlRecordList.addAll(addedMusicDlRecordList);
