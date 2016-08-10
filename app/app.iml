@@ -8,72 +8,72 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="YueYinYueConfigRelease" />
+        <option name="SELECTED_BUILD_VARIANT" value="JuLeTangConfig2Release" />
         <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleYueYinYueConfigRelease" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileYueYinYueConfigReleaseSources" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleJuLeTangConfig2Release" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileJuLeTangConfig2ReleaseSources" />
         <afterSyncTasks>
-          <task>generateYueYinYueConfigReleaseSources</task>
+          <task>generateJuLeTangConfig2ReleaseSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/YueYinYueConfig/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/JuLeTangConfig2/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/YueYinYueConfig/release" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/YueYinYueConfig/release" />
+    <output url="file://$MODULE_DIR$/build/intermediates/classes/JuLeTangConfig2/release" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/JuLeTangConfig2/release" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/YueYinYueConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/YueYinYueConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/YueYinYueConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/YueYinYueConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/YueYinYueConfig/release" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/YueYinYueConfig/release" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/jni" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigRelease/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigRelease/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/jni" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/JuLeTangConfig2/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/JuLeTangConfig2/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/JuLeTangConfig2/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/JuLeTangConfig2/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/JuLeTangConfig2/release" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/JuLeTangConfig2/release" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2Release/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2Release/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/JuLeTangConfig2/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testJuLeTangConfig2/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestJuLeTangConfig2/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/assets" type="java-resource" />
@@ -174,8 +174,8 @@
     <orderEntry type="library" exported="" name="antlr4-4.5" level="project" />
     <orderEntry type="library" exported="" name="baseLibrary-2.1.2" level="project" />
     <orderEntry type="library" exported="" name="fire-eye-2.2" level="project" />
-    <orderEntry type="library" exported="" name="antlr4-annotations-4.5" level="project" />
     <orderEntry type="library" exported="" name="antlr4-runtime-4.5" level="project" />
+    <orderEntry type="library" exported="" name="antlr4-annotations-4.5" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-animators-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="org.abego.treelayout.core-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
