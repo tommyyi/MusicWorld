@@ -5,6 +5,7 @@
 
         <!--聚乐堂2 APP-->
         <activity
+            android:screenOrientation="portrait"
             android:name="com.yueyinyue.home.juletang.MainActivity"
             android:configChanges="orientation"
             android:label="@string/myappname"

@@ -5,6 +5,7 @@
 
         <!--天籁之音APP-->
         <activity
+            android:screenOrientation="portrait"
             android:name="com.yueyinyue.home.tianlaizhisheng.MainActivity"
             android:configChanges="orientation"
             android:label="@string/myappname"
