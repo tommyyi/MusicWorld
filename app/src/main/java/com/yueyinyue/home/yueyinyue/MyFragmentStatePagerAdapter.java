@@ -1,5 +1,8 @@
 package com.yueyinyue.home.yueyinyue;
 
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,11 +17,13 @@ import com.yueyinyue.home.Pagerfragment.CpFragment;
  */
 class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
 {
+    private Context mContext;
     private final ChartListRsp mChartListRsp;
 
-    public MyFragmentStatePagerAdapter(FragmentManager fragmentManager, ChartListRsp chartListRsp)
+    public MyFragmentStatePagerAdapter(Context context, FragmentManager fragmentManager, ChartListRsp chartListRsp)
     {
         super(fragmentManager);
+        mContext = context;
         mChartListRsp = chartListRsp;
     }
 
@@ -38,7 +43,32 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
     @Override
     public int getCount()
     {
-        return Category.cmcc.length + 1;
+        if (com.xk.m.BuildConfig.FLAVOR.equals("YueYinYueConfig"))
+        {
+            boolean includecp=true;
+            try
+            {
+                ApplicationInfo info = mContext.getPackageManager().getApplicationInfo(mContext.getPackageName(), PackageManager.GET_META_DATA);
+                includecp = info.metaData.getBoolean("INCLUDECP");
+            }
+            catch (PackageManager.NameNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+
+            if (includecp)
+            {
+                return Category.cmcc.length + 1;
+            }
+            else
+            {
+                return Category.cmcc.length;
+            }
+        }
+        else
+        {
+            return Category.cmcc.length + 1;
+        }
     }
 
     @Override

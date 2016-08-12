@@ -58,14 +58,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/assets" type="java-test-resource" />
@@ -74,6 +66,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/release/assets" type="java-resource" />
@@ -174,8 +174,8 @@
     <orderEntry type="library" exported="" name="antlr4-4.5" level="project" />
     <orderEntry type="library" exported="" name="baseLibrary-2.1.2" level="project" />
     <orderEntry type="library" exported="" name="fire-eye-2.2" level="project" />
-    <orderEntry type="library" exported="" name="antlr4-annotations-4.5" level="project" />
     <orderEntry type="library" exported="" name="antlr4-runtime-4.5" level="project" />
+    <orderEntry type="library" exported="" name="antlr4-annotations-4.5" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-animators-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="org.abego.treelayout.core-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />

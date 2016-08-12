@@ -157,7 +157,7 @@ public class MainActivity extends BaseActivity
     public void showFragment(final ChartListRsp chartListRsp)
     {
         mLoadToast.setText("正在加载音乐").show();
-        mActivityyyyHomeBinding.viewpager.setAdapter((new MyFragmentStatePagerAdapter(getSupportFragmentManager(), chartListRsp)));
+        mActivityyyyHomeBinding.viewpager.setAdapter((new MyFragmentStatePagerAdapter(getApplicationContext(),getSupportFragmentManager(), chartListRsp)));
         mActivityyyyHomeBinding.tablayout.setupWithViewPager(mActivityyyyHomeBinding.viewpager);
         mActivityyyyHomeBinding.viewpager.setOffscreenPageLimit(mActivityyyyHomeBinding.viewpager.getAdapter().getCount());
     }

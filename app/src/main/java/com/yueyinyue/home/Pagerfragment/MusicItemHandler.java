@@ -1,6 +1,7 @@
 package com.yueyinyue.home.Pagerfragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,6 +177,7 @@ public class MusicItemHandler implements ViewCardContentUpdateImp, ViewButtonImp
             @Override
             public void operationResult(OrderResult downloadResult)
             {
+                mActivity.getSharedPreferences("log", Context.MODE_PRIVATE).edit().putString("vibrate",downloadResult.toString()).commit();
                 if (null != downloadResult)
                 {
                     final String musicUrl = downloadResult.getDownUrl();
@@ -188,18 +190,18 @@ public class MusicItemHandler implements ViewCardContentUpdateImp, ViewButtonImp
                     }
                     else
                     {
-                        urlIsNotReady();
+                        urlIsNotReady(downloadResult.toString());
                     }
                 }
                 else
                 {
-                    urlIsNotReady();
+                    urlIsNotReady(null);
                 }
             }
 
-            private void urlIsNotReady()
+            private void urlIsNotReady(String msg)
             {
-                new AlertDialog.Builder(mActivity).setTitle("振铃下载结果").setMessage("没有获得下载信息").setPositiveButton("确认", null).show();
+                new AlertDialog.Builder(mActivity).setTitle("振铃下载结果").setMessage("没有获得下载信息:"+msg).setPositiveButton("确认", null).show();
                 mCardContentBinding.setvibrateringButton.setText(mActivity.getText(R.string.vibrateRingDownload));
                 mCardContentBinding.setvibrateringButton.setEnabled(true);
             }
