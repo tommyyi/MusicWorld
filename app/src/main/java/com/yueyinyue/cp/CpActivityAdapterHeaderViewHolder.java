@@ -11,10 +11,10 @@ import com.yueyinyue.Model.Category;
 
 public class CpActivityAdapterHeaderViewHolder extends RecyclerView.ViewHolder
 {
-    private final Activity mActivity;
-    private final int mLimited;
-    private final int mCpCategoryIndex;
-    private final MusicItemHeaderBinding mMusicItemHeaderBinding;
+    public final Activity mActivity;
+    public final int mLimited;
+    public final int mCpCategoryIndex;
+    public final MusicItemHeaderBinding mMusicItemHeaderBinding;
     public CpActivityAdapterHeaderViewHolder(Activity activity, View view, int limited, int cpCategoryIndex)
     {
         super(view);

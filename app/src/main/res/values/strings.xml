@@ -24,7 +24,9 @@
     <string name="cancel">取消</string>
     <string name="confirm">确认</string>
     <string name="serviceIntro">业务介绍：独家专享的时尚流行音乐，订购%1$s业务，可批量下载任意%2$s首歌曲</string>
+    <string name="albumIntro">《亲爱的翻译官》是王迎执导的职场爱情剧，杨幂、黄轩领衔主演。谭维维倾情献声，剧中主题曲双版本编曲抒情坐镇，金牌音乐制作人谭旋保驾护航。</string>
     <string name="serviceFee">业务资费：%1$s元/次</string>
+    <string name="albumFee">业务资费：5元3首</string>
     <string name="serviceFee_month">业务资费：%1$s元/月</string>
 
     <string name="inputContent">输入您要搜索的内容</string>

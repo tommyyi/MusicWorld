@@ -11,17 +11,17 @@ import com.xk.m.R;
 
 import java.util.List;
 
-public class CpActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class CpMusicListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
-    private static final int TYPE_HEADER = 0;
-    private static final int TYPE_CELL = 1;
+    public static final int TYPE_HEADER = 0;
+    public static final int TYPE_CELL = 1;
 
-    private final Activity activity;
-    private final List<MusicItem> musicItemList;
-    private final int limited;
-    private final int cpCategoryIndex;
+    public final Activity activity;
+    public final List<MusicItem> musicItemList;
+    public final int limited;
+    public final int cpCategoryIndex;
 
-    public CpActivityAdapter(Activity activity, int cpCategoryIndex, List<MusicItem> musicItemList, int limited)
+    public CpMusicListAdapter(Activity activity, int cpCategoryIndex, List<MusicItem> musicItemList, int limited)
     {
         this.activity = activity;
         this.musicItemList = musicItemList;

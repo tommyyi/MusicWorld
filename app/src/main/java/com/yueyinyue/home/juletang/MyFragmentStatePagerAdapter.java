@@ -12,6 +12,7 @@ import com.xk.m.BuildConfig;
 import com.yueyinyue.Model.Category;
 import com.yueyinyue.home.Pagerfragment.CMCCFragment;
 import com.yueyinyue.home.Pagerfragment.CpFragment;
+import com.yueyinyue.home.Pagerfragment.album.AlbumFragment;
 
 /**
  * Created by Administrator on 2016/4/8.
@@ -34,6 +35,10 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         if (fragmentPosition < Category.cmcc.length)
         {
             return CMCCFragment.newInstance(fragmentPosition, mChartListRsp);
+        }
+        else if(fragmentPosition == Category.cmcc.length)
+        {
+            return AlbumFragment.newInstance();
         }
         else
         {
@@ -59,16 +64,16 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
 
             if (includecp)
             {
-                return Category.cmcc.length + 1;
+                return Category.cmcc.length + 1+1;
             }
             else
             {
-                return Category.cmcc.length;
+                return Category.cmcc.length+1;
             }
         }
         else
         {
-            return Category.cmcc.length + 1;
+            return Category.cmcc.length + 1+1;
         }
     }
 
@@ -78,6 +83,10 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         if (fragmentPosition < Category.cmcc.length)
         {
             return Category.cmcc[fragmentPosition];
+        }
+        else if(fragmentPosition == Category.cmcc.length)
+        {
+            return "数字专辑";
         }
         else
         {

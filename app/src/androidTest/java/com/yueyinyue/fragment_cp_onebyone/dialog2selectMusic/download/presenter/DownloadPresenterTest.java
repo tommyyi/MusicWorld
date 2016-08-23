@@ -59,7 +59,7 @@ public class DownloadPresenterTest
             public void run()
             {
                 List<MusicItem> musicItemList= new ArrayList<>();
-                DownloadPresenter dlpresenter=new DownloadPresenter(mMainActivity, 0,new DownloadViewImpl()
+                DownloadPresenter dlpresenter=new DownloadPresenter(mMainActivity, "",new DownloadViewImpl()
                 {
                     @Override
                     public void resetSelectedTag(List<MusicItem> musicItemList)

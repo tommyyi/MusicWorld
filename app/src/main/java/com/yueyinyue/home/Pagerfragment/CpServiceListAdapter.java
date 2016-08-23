@@ -13,13 +13,13 @@ import com.xk.m.R;
 import com.yueyinyue.Model.Category;
 import com.yueyinyue.cp.CpActivity;
 
-public class CpAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class CpServiceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_CELL = 1;
 
     private Activity activity;
-    public CpAdapter(Activity activity)
+    public CpServiceListAdapter(Activity activity)
     {
         this.activity = activity;
     }

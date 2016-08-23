@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.dd.processbutton.iml.SubmitProcessButton;
+import com.yueyinyue.Model.Category;
 import com.yueyinyue.Model.EventBusMessage.Reach2LimitedMessage;
 import com.yueyinyue.Model.EventBusMessage.UpdateItemMessage;
 import com.yueyinyue.cp.dialog.download.presenter.DownloadPresenter;
@@ -27,14 +28,14 @@ import de.greenrobot.event.EventBus;
 
 public class MusicSelectDialog extends AppCompatDialog implements DownloadViewImpl
 {
-    private final LoadToast loadToast;
-    private final SubmitProcessButton confirm;
-    private final SubmitProcessButton cancel;
-    private final MusicSelectDialogAdapter mAdapter;
-    private final DownloadPresenterImpl downloadPresenterImpl;
-    private final Handler handler;
-    private final Activity activity;
-    private final int mCpCategoryIndex;
+    public final LoadToast loadToast;
+    public final SubmitProcessButton confirm;
+    public final SubmitProcessButton cancel;
+    public final MusicSelectDialogAdapter mAdapter;
+    public DownloadPresenterImpl downloadPresenterImpl;
+    public final Handler handler;
+    public final Activity activity;
+    public final int mCpCategoryIndex;
 
     public MusicSelectDialog(Activity activity, int cpCategoryIndex, final List<MusicItem> musicItemList, final int limited)
     {
@@ -45,7 +46,8 @@ public class MusicSelectDialog extends AppCompatDialog implements DownloadViewIm
         this.mCpCategoryIndex = cpCategoryIndex;
         resetSelectedTag(musicItemList);
         this.activity = activity;
-        downloadPresenterImpl = new DownloadPresenter(activity, mCpCategoryIndex,this, musicItemList);
+        String serviceId= Category.getServiceId(activity.getApplicationContext(),mCpCategoryIndex);
+        downloadPresenterImpl = new DownloadPresenter(activity, serviceId,this, musicItemList);
         View view = LayoutInflater.from(activity).inflate(R.layout.dialog_tickmusic, null, false);
 
         ListViewCompat listViewCompat = (ListViewCompat) view.findViewById(R.id.recyclerView);
@@ -59,8 +61,10 @@ public class MusicSelectDialog extends AppCompatDialog implements DownloadViewIm
             @Override
             public void onClick(View v)
             {
-                if(mCpCategoryIndex==0&&limited!=30)
+                if(mCpCategoryIndex==0&&limited!=30&&limited!=3)
                     downloadPresenterImpl.handleCPMonthBuy();
+                else if(mCpCategoryIndex==0&&limited==3)
+                    downloadPresenterImpl.handleAlbumBuy();
                 else
                     downloadPresenterImpl.handleCPPatchBuy();
             }

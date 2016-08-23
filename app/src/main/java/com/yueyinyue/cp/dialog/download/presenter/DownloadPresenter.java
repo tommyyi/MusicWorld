@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.cmsc.cmmusic.common.CMMusicCallback;
 import com.cmsc.cmmusic.common.CPManagerInterface;
+import com.cmsc.cmmusic.common.DigitalAlbumManagerInterface;
 import com.cmsc.cmmusic.common.ExclusiveManagerInterface;
 import com.cmsc.cmmusic.common.data.OrderResult;
 import com.cmsc.cmmusic.init.InitCmmInterface;
@@ -45,10 +46,10 @@ public class DownloadPresenter implements DownloadPresenterImpl
     protected int mCount2Addressed = 0;
     protected int mCountAddressNotExist = 0;
 
-    public DownloadPresenter(Activity activity, int categoryIndex, DownloadViewImpl downloadViewImpl, List<MusicItem> musicItemList)
+    public DownloadPresenter(Activity activity, String serviceId, DownloadViewImpl downloadViewImpl, List<MusicItem> musicItemList)
     {
         this.mActivity = activity;
-        this.mServiceId= Category.getServiceId(activity.getApplicationContext(),categoryIndex);
+        this.mServiceId= serviceId;
         this.downloadViewImpl = downloadViewImpl;
         this.downloadModelImpl = new DownloadModel(activity);
         this.mMusicItemList = musicItemList;
@@ -80,6 +81,44 @@ public class DownloadPresenter implements DownloadPresenterImpl
             }
         }
         return OUTOFINDEX;
+    }
+
+    @Override
+    public void handleAlbumBuy()
+    {
+        mCount2Selected = getTotalSelect(mMusicItemList);
+        mCount2Addressed = 0;
+        mCountAddressNotExist = 0;
+
+        if (mCount2Selected == 0 || mServiceId.equals(""))
+        {
+            return;
+        }
+
+        Observable.create(new Observable.OnSubscribe<Boolean>()
+        {
+            @Override
+            public void call(Subscriber<? super Boolean> subscriber)
+            {
+                subscriber.onNext(InitCmmInterface.initCheck(mActivity));
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Boolean>()
+        {
+            @Override
+            public void call(Boolean isInitiateOK)
+            {
+                if (isInitiateOK)
+                {
+                    Log.i("USER STATUS", "OK");
+                    payByAlbum(mServiceId);
+                }
+                else
+                {
+                    Log.i("USER STATUS", "NOT OK");
+                    initiateUserThenPayByAlbum(mServiceId);
+                }
+            }
+        });
     }
 
     @Override
@@ -210,6 +249,35 @@ public class DownloadPresenter implements DownloadPresenterImpl
         });
     }
 
+    private void initiateUserThenPayByAlbum(final String serviceId)
+    {
+        Observable.create(new Observable.OnSubscribe<String>()
+        {
+            @Override
+            public void call(Subscriber<? super String> subscriber)
+            {
+                Hashtable<String, String> hashTable = InitCmmInterface.initCmmEnv(mActivity);
+                String code = hashTable.get("code");
+                if (code.equals("0"))
+                {
+                    subscriber.onNext(serviceId);
+                    Log.i("USER INITIALIZATION", "SUCCESS");
+                }
+                else
+                {
+                    Log.i("USER INITIALIZATION", "FAILED");
+                }
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>()
+        {
+            @Override
+            public void call(String serviceId)
+            {
+                payByAlbum(serviceId);
+            }
+        });
+    }
+
     private void initiateUserThenPayByPatch(final String serviceId)
     {
         Observable.create(new Observable.OnSubscribe<String>()
@@ -265,6 +333,32 @@ public class DownloadPresenter implements DownloadPresenterImpl
                 else
                 {
                     Toast.makeText(mActivity.getApplicationContext(),result.getResMsg(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void payByAlbum(final String serviceId)
+    {
+        DigitalAlbumManagerInterface.orderDigitalAlbum(mActivity, serviceId, new CMMusicCallback<OrderResult>()
+        {
+            @Override
+            public void operationResult(OrderResult result)
+            {
+                if (result == null)
+                {
+                    Toast.makeText(mActivity,"无结果返回",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                int resultCode = result.getResultCode();
+                if (resultCode == 1)
+                {
+                    fillInDlAddress();
+                }
+                else
+                {
+                    Toast.makeText(mActivity,result.getResMsg(),Toast.LENGTH_LONG).show();
                 }
             }
         });

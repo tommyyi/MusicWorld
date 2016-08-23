@@ -71,7 +71,7 @@ public class SearchActivityTest
         List<MusicItem> musicItemList = MusicItem.getCPMusicListByCategoryName(searchActivity, Category.getCpCategoryName(searchActivity.getApplicationContext(),0));
         musicItemList.get(0).setSelected(true);
         musicItemList.get(0).setMusicid("63354400060");
-        final DownloadPresenter downloadPresenter = new DownloadPresenter(searchActivity, 0,new DownloadViewImpl()
+        final DownloadPresenter downloadPresenter = new DownloadPresenter(searchActivity, "",new DownloadViewImpl()
         {
             @Override
             public void resetSelectedTag(List<MusicItem> musicItemList)

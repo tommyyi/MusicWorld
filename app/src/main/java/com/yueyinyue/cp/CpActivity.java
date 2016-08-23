@@ -61,7 +61,7 @@ public class CpActivity extends BaseActivity
                 mActivityCpBinding.swipeRefreshLayout.setRefreshing(false);
             }
         });
-        mAdapter = new RecyclerViewMaterialAdapter(new CpActivityAdapter(this, mCpCategoryIndex,musicItemList, Category.getLimited(getApplicationContext(),mCpCategoryIndex)));
+        mAdapter = new RecyclerViewMaterialAdapter(new CpMusicListAdapter(this, mCpCategoryIndex,musicItemList, Category.getLimited(getApplicationContext(),mCpCategoryIndex)));
         //AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
         //ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
         //mRecyclerView.setAdapter(scaleAdapter);

@@ -1,4 +1,4 @@
-package com.yueyinyue.cp;
+package com.yueyinyue.home.Pagerfragment.album;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.squareup.picasso.Picasso;
 import com.xk.m.R;
-import com.xk.m.databinding.MusicItemInCpActivityBinding;
+import com.xk.m.databinding.MusicItemInAlbumBinding;
 import com.yueyinyue.Model.Category;
 import com.yueyinyue.Model.EventBusMessage.PlayMusicMessage;
 import com.yueyinyue.Model.EventBusMessage.ShowedViewTagMessage;
@@ -30,30 +30,30 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
-public class CpActivityAdapterViewHolder extends RecyclerView.ViewHolder
+public class AlbumMusicListAdapterViewHolder extends RecyclerView.ViewHolder
 {
-    public final Activity mActivity;
-    public final List<MusicItem> mMusicItemList;
-    public final int mLimited;
-    public final int mCpCategoryIndex;
-    public final MusicItemInCpActivityBinding mMusicItemInCpActivityBinding;
-    public MusicItem mMusicItem;
+    private final Activity mActivity;
+    private final List<MusicItem> mMusicItemList;
+    private final int mLimited;
+    private final int mCpCategoryIndex;
+    private final MusicItemInAlbumBinding mMusicItemInAlbumBinding;
+    private MusicItem mMusicItem;
 
-    public CpActivityAdapterViewHolder(Activity activity, View view, List<MusicItem> musicItemList, int limited, int cpCategoryIndex)
+    public AlbumMusicListAdapterViewHolder(Activity activity, View view, List<MusicItem> musicItemList, int limited, int cpCategoryIndex)
     {
         super(view);
         mActivity = activity;
         mMusicItemList = musicItemList;
         mLimited = limited;
         mCpCategoryIndex = cpCategoryIndex;
-        mMusicItemInCpActivityBinding = DataBindingUtil.bind(view.findViewById(R.id.music_item_in_cp_activity));
+        mMusicItemInAlbumBinding = DataBindingUtil.bind(view.findViewById(R.id.music_item_in_album));
     }
 
     public void setMusicContent(MusicItem musicItem)
     {
         mMusicItem = musicItem;
-        mMusicItemInCpActivityBinding.setClickhandler(new ClickHandler());
-        mMusicItemInCpActivityBinding.setMusicItem(mMusicItem);
+        mMusicItemInAlbumBinding.setClickhandler(new ClickHandler());
+        mMusicItemInAlbumBinding.setMusicItem(mMusicItem);
         setUpperLayout();
         setLowerLayout();
         setBuyMusicButton();
@@ -63,32 +63,32 @@ public class CpActivityAdapterViewHolder extends RecyclerView.ViewHolder
     {
         if (!mMusicItem.isDownloaded())
         {
-            mMusicItemInCpActivityBinding.buyMusics.setText(String.format(Locale.CHINA, "%d元任意%d首", Category.getPrice(mActivity.getApplicationContext(),mCpCategoryIndex), mLimited));
+            mMusicItemInAlbumBinding.buyMusics.setText(mActivity.getString(R.string.albumFee));
         }
         else
         {
-            mMusicItemInCpActivityBinding.buyMusics.setText("前往我的下载");
+            mMusicItemInAlbumBinding.buyMusics.setText("前往我的下载");
         }
     }
 
-    public void setLowerLayout()
+    private void setLowerLayout()
     {
-        mMusicItemInCpActivityBinding.lowerlinearlayout.setTag(mMusicItem.getMusicid());
-        mMusicItemInCpActivityBinding.lowerlinearlayout.setVisibility(View.GONE);
+        mMusicItemInAlbumBinding.lowerlinearlayout.setTag(mMusicItem.getMusicid());
+        mMusicItemInAlbumBinding.lowerlinearlayout.setVisibility(View.GONE);
     }
 
-    public void setUpperLayout()
+    private void setUpperLayout()
     {
-        mMusicItemInCpActivityBinding.songname.setText(mMusicItem.getSong());
-        mMusicItemInCpActivityBinding.singername.setText(mMusicItem.getSinger());
-        Picasso.with(mActivity).load(mMusicItem.getPicaddress()).placeholder(R.drawable.icon).error(R.drawable.icon).resizeDimen(R.dimen.songlogoimagesize, R.dimen.songlogoimagesize).centerInside().tag(mActivity).into(mMusicItemInCpActivityBinding.songlogo);
+        mMusicItemInAlbumBinding.songname.setText(mMusicItem.getSong());
+        mMusicItemInAlbumBinding.singername.setText(mMusicItem.getSinger());
+        Picasso.with(mActivity).load(mMusicItem.getPicaddress()).placeholder(R.drawable.icon).error(R.drawable.icon).resizeDimen(R.dimen.songlogoimagesize, R.dimen.songlogoimagesize).centerInside().tag(mActivity).into(mMusicItemInAlbumBinding.songlogo);
     }
 
     public class ClickHandler
     {
         public void onShowMusicSelectDialog(View view)
         {
-            new MusicSelectDialog(mActivity, mCpCategoryIndex, mMusicItemList, mLimited);
+            new AlbumMusicSelectDialog(mActivity, mCpCategoryIndex, mMusicItemList, mLimited);
         }
 
         public void onGo2MyDownload(View view)
@@ -100,11 +100,11 @@ public class CpActivityAdapterViewHolder extends RecyclerView.ViewHolder
 
         public void onUpperLinearLayoutClick(View view)
         {
-            if (mMusicItemInCpActivityBinding.lowerlinearlayout.getVisibility() == View.GONE)
+            if (mMusicItemInAlbumBinding.lowerlinearlayout.getVisibility() == View.GONE)
             {
-                EventBus.getDefault().post(new ShowedViewTagMessage(mMusicItemInCpActivityBinding.lowerlinearlayout, (String) mMusicItemInCpActivityBinding.lowerlinearlayout.getTag()));
-                mMusicItemInCpActivityBinding.lowerlinearlayout.setVisibility(View.VISIBLE);
-                YoYo.with(Techniques.SlideInUp).duration(200).playOn(mMusicItemInCpActivityBinding.lowerlinearlayout);
+                EventBus.getDefault().post(new ShowedViewTagMessage(mMusicItemInAlbumBinding.lowerlinearlayout, (String) mMusicItemInAlbumBinding.lowerlinearlayout.getTag()));
+                mMusicItemInAlbumBinding.lowerlinearlayout.setVisibility(View.VISIBLE);
+                YoYo.with(Techniques.SlideInUp).duration(200).playOn(mMusicItemInAlbumBinding.lowerlinearlayout);
             }
             else
             {
@@ -118,7 +118,7 @@ public class CpActivityAdapterViewHolder extends RecyclerView.ViewHolder
                     @Override
                     public void onAnimationEnd(com.nineoldandroids.animation.Animator animation)
                     {
-                        mMusicItemInCpActivityBinding.lowerlinearlayout.setVisibility(View.GONE);
+                        mMusicItemInAlbumBinding.lowerlinearlayout.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -130,7 +130,7 @@ public class CpActivityAdapterViewHolder extends RecyclerView.ViewHolder
                     public void onAnimationRepeat(com.nineoldandroids.animation.Animator animation)
                     {
                     }
-                }).playOn(mMusicItemInCpActivityBinding.lowerlinearlayout);
+                }).playOn(mMusicItemInAlbumBinding.lowerlinearlayout);
             }
         }
 
