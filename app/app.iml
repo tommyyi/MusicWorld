@@ -8,78 +8,78 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="YueYinYueConfigDebug" />
+        <option name="SELECTED_BUILD_VARIANT" value="TianLaiZhiShengConfig2Debug" />
         <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleYueYinYueConfigDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileYueYinYueConfigDebugSources" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleTianLaiZhiShengConfig2Debug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileTianLaiZhiShengConfig2DebugSources" />
         <afterSyncTasks>
-          <task>generateYueYinYueConfigDebugSources</task>
+          <task>generateTianLaiZhiShengConfig2DebugSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/YueYinYueConfig/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/YueYinYueConfig/debug" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/YueYinYueConfig/debug" />
+    <output url="file://$MODULE_DIR$/build/intermediates/classes/TianLaiZhiShengConfig2/debug" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/TianLaiZhiShengConfig2/debug" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/YueYinYueConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/YueYinYueConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/YueYinYueConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/YueYinYueConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/YueYinYueConfig/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/YueYinYueConfig/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/jni" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfigDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfigDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/YueYinYueConfig/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/YueYinYueConfig/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/YueYinYueConfig/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/YueYinYueConfig/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/YueYinYueConfig/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/YueYinYueConfig/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/jni" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/YueYinYueConfig/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testYueYinYueConfig/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestYueYinYueConfig/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/TianLaiZhiShengConfig2/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/TianLaiZhiShengConfig2/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/TianLaiZhiShengConfig2/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/TianLaiZhiShengConfig2/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/TianLaiZhiShengConfig2/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/TianLaiZhiShengConfig2/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2Debug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2Debug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/TianLaiZhiShengConfig2/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/TianLaiZhiShengConfig2/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/TianLaiZhiShengConfig2/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/TianLaiZhiShengConfig2/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/TianLaiZhiShengConfig2/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/TianLaiZhiShengConfig2/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/TianLaiZhiShengConfig2/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testTianLaiZhiShengConfig2/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestTianLaiZhiShengConfig2/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
