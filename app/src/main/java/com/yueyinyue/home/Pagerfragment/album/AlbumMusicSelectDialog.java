@@ -23,7 +23,7 @@ public class AlbumMusicSelectDialog extends MusicSelectDialog
     public AlbumMusicSelectDialog(Activity activity, int cpCategoryIndex, List<MusicItem> musicItemList, int limited)
     {
         super(activity, cpCategoryIndex, musicItemList, limited);
-        String serviceId="60050402697";/*数字专辑的ID*/
+        String serviceId="600504026975";/*数字专辑的ID*/
         downloadPresenterImpl = new DownloadPresenter(activity, serviceId,this, musicItemList);
     }
 }
