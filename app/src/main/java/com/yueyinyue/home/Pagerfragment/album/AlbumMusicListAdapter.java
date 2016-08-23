@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 
 import com.xk.m.R;
 import com.yueyinyue.Model.MusicItem;
-import com.yueyinyue.cp.CpActivityAdapterHeaderViewHolder;
-import com.yueyinyue.cp.CpActivityAdapterViewHolder;
 import com.yueyinyue.cp.CpMusicListAdapter;
 
 import java.util.List;
@@ -33,7 +31,7 @@ public class AlbumMusicListAdapter extends CpMusicListAdapter
             case TYPE_HEADER:
             {
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.music_item_header, parent, false);
-                return new AlbumHeaderViewHolder(activity,view,limited,cpCategoryIndex);
+                return new AlbumMusicListHeaderViewHolder(activity,view,limited,cpCategoryIndex);
             }
             case TYPE_CELL:
             {
@@ -50,7 +48,7 @@ public class AlbumMusicListAdapter extends CpMusicListAdapter
         switch (getItemViewType(position))
         {
             case TYPE_HEADER:
-                ((AlbumHeaderViewHolder)holder).setContent();
+                ((AlbumMusicListHeaderViewHolder)holder).setContent();
                 break;
 
             case TYPE_CELL:

@@ -10,9 +10,9 @@ import com.xk.m.databinding.MusicItemHeaderBinding;
 import com.yueyinyue.Model.Category;
 import com.yueyinyue.cp.CpActivityAdapterHeaderViewHolder;
 
-public class AlbumHeaderViewHolder extends CpActivityAdapterHeaderViewHolder
+public class AlbumMusicListHeaderViewHolder extends CpActivityAdapterHeaderViewHolder
 {
-    public AlbumHeaderViewHolder(Activity activity, View view, int limited, int cpCategoryIndex)
+    public AlbumMusicListHeaderViewHolder(Activity activity, View view, int limited, int cpCategoryIndex)
     {
         super(activity, view, limited, cpCategoryIndex);
     }
