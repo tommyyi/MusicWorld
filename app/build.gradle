@@ -53,13 +53,13 @@ android {
             signingConfig signingConfigs.tianyi
 
             //悦音乐APP参数 (闪耀人生)
-            manifestPlaceholders = [miguopen_appid: "appid:009198455268065900",
+            manifestPlaceholders = [miguopen_appid : "appid:009198455268065900",
                                     miguopen_chcode: "chcode:014A1IB",
-                                    categoryArray: "悦音乐30元流行前线音乐,悦音乐10元车载发烧音乐",
-                                    limitedArray: "30,10",
-                                    price: "30,10",
-                                    serviceIdArray: "serviceId:633544Z01000100002,633544Z01000100003",
-                                    INCLUDECP: "false"]
+                                    categoryArray  : "悦音乐30元流行前线音乐,悦音乐10元车载发烧音乐",
+                                    limitedArray   : "30,10",
+                                    price          : "30,10",
+                                    serviceIdArray : "serviceId:633544Z01000100002,633544Z01000100003",
+                                    INCLUDECP      : "false"]
         }
 
         TianLaiZhiShengConfig {
@@ -72,12 +72,12 @@ android {
             testApplicationId 'com.xk.tianlaizhisheng.test'
 
             //天籁之音APP参数 （晨光讯飞和南光文化）
-            manifestPlaceholders = [miguopen_appid: "appid:008251459113267614",
+            manifestPlaceholders = [miguopen_appid : "appid:008251459113267614",
                                     miguopen_chcode: "chcode:014A1HJ",
-                                    categoryArray: "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
-                                    limitedArray: "6,10,20",
-                                    price: "6,10,20",
-                                    serviceIdArray: "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002"]
+                                    categoryArray  : "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
+                                    limitedArray   : "6,10,20",
+                                    price          : "6,10,20",
+                                    serviceIdArray : "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002"]
         }
 
         TianLaiZhiShengConfig2 {
@@ -90,13 +90,13 @@ android {
             testApplicationId 'com.xk.tianlaizhisheng.test'
 
             //天籁之音2APP参数 （晨光讯飞和南光文化）
-            manifestPlaceholders = [miguopen_appid: "appid:007560527263607847",
+            manifestPlaceholders = [miguopen_appid : "appid:007560527263607847",
                                     miguopen_chcode: "chcode:014A1MY",
-                                    categoryArray: "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
-                                    limitedArray: "6,10,20",
-                                    price: "6,10,20",
-                                    serviceIdArray: "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002",
-                                    INCLUDECP: "false"]
+                                    categoryArray  : "天籁之声会员包,天籁之声10元音乐,天籁之声20元音乐",
+                                    limitedArray   : "6,10,20",
+                                    price          : "6,10,20",
+                                    serviceIdArray : "serviceId:600967020000006658,633677Z01000100001,633677Z01000100002",
+                                    INCLUDECP      : "false"]
         }
 
         JuLeTangConfig {
@@ -109,12 +109,12 @@ android {
             testApplicationId 'com.xk.m.test'
 
             //聚乐堂APP参数 （闪耀人生）
-            manifestPlaceholders = [miguopen_appid: "appid:005492445194367602",
+            manifestPlaceholders = [miguopen_appid : "appid:005492445194367602",
                                     miguopen_chcode: "chcode:014A1HA",
-                                    categoryArray: "享受最前沿,聚乐10元按次包",
-                                    limitedArray: "6,10",
-                                    price: "6,10",
-                                    serviceIdArray: "serviceId:600967020000006653,633544Z01000100001"]
+                                    categoryArray  : "享受最前沿,聚乐10元按次包",
+                                    limitedArray   : "6,10",
+                                    price          : "6,10",
+                                    serviceIdArray : "serviceId:600967020000006653,633544Z01000100001"]
         }
         JuLeTangConfig2 {
             minSdkVersion 10
@@ -126,20 +126,21 @@ android {
             testApplicationId 'com.xk.m2.test'
 
             //聚乐堂2APP参数 （闪耀人生）
-            manifestPlaceholders = [miguopen_appid: "appid:001249525992608387",
+            manifestPlaceholders = [miguopen_appid : "appid:001249525992608387",
                                     miguopen_chcode: "chcode:014A1N7",
-                                    categoryArray: "享受最前沿,聚乐10元按次包",
-                                    limitedArray: "6,10",
-                                    price: "6,10",
-                                    serviceIdArray: "serviceId:600967020000006653,633544Z01000100001",
-                                    INCLUDECP: "false"]
+                                    categoryArray  : "享受最前沿,聚乐10元按次包",
+                                    limitedArray   : "6,10",
+                                    price          : "6,10",
+                                    serviceIdArray : "serviceId:600967020000006653,633544Z01000100001",
+                                    INCLUDECP      : "false"]
         }
     }
 
-    applicationVariants.all ({ variant ->
-        variant.outputs.each ({ output ->
+    applicationVariants.all({ variant ->
+        variant.outputs.each({ output ->
             def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+            if (outputFile != null && outputFile.name.endsWith('.apk'))
+            {
                 // 输出apk名称为app-YueYinYueConfig-release_v1.3_2016-08-05.apk
                 def fileName = "_v${variant.productFlavors[0].versionName}_${releaseTime()}.apk"
                 output.outputFile = new File(outputFile.parent, outputFile.name.replace("app-", "").replace("Config", "").replace(".apk", fileName))
@@ -230,46 +231,50 @@ dependencies {
     compile project(':libLoadingToast')
 }
 
-String releaseTime() {
+String releaseTime()
+{
     return new Date().format("MMdd", TimeZone.getTimeZone("Asia/Shanghai"))
 }
 
-def buildTime() {
+def buildTime()
+{
     def df = new SimpleDateFormat("yyMMddHHmmss")
     df.setTimeZone(TimeZone.getTimeZone("UTC+08:00"))
     return df.format(new Date())
 }
 
-def apkSuffix() {
+def apkSuffix()
+{
     def df = new SimpleDateFormat("yyMMdd")
     df.setTimeZone(TimeZone.getTimeZone("UTC+08:00"))
     return df.format(new Date())
 }
 
-def changeManifest(String replace) {
-    String file="D:\\CODE\\MusicAPP\\MusicJuLeTang\\app\\src\\main\\AndroidManifest.xml";
+def changeManifest(String replace)
+{
+    String file = "D:\\CODE\\MusicAPP\\MusicJuLeTang\\app\\src\\main\\AndroidManifest.xml";
 
     FileInputStream fileInputStream = new FileInputStream(file);
-    byte[] buffer=new byte[fileInputStream.available()];
-    System.out.println(buffer.length+"\r\n");
+    byte[] buffer = new byte[fileInputStream.available()];
+    System.out.println(buffer.length + "\r\n");
     fileInputStream.read(buffer);
     fileInputStream.close();
 
-    String content=new String(buffer);
-    System.out.println(content+"\r\n");
+    String content = new String(buffer);
+    System.out.println(content + "\r\n");
 
-    String first="<meta-data android:name=\"test\" android:value=\"";
-    String second="\"/>";
+    String first = "<meta-data android:name=\"test\" android:value=\"";
+    String second = "\"/>";
     String keyValue = content.split(first)[1].split(second)[0];
 
-    String str1=first+keyValue+second;
-    String str2=first+replace+second;
-    content=content.replace(str1,str2);
+    String str1 = first + keyValue + second;
+    String str2 = first + replace + second;
+    content = content.replace(str1, str2);
 
-    System.out.println(content+"\r\n");
+    System.out.println(content + "\r\n");
 
-    FileOutputStream fileOutputStream=new FileOutputStream(file);
-    buffer=content.getBytes();
+    FileOutputStream fileOutputStream = new FileOutputStream(file);
+    buffer = content.getBytes();
     fileOutputStream.write(buffer);
     fileOutputStream.close();
 }
