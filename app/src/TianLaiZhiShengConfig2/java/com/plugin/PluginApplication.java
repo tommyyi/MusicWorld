@@ -1,5 +1,7 @@
 package com.plugin;
 
+import android.content.Context;
+
 import com.xk.tianlaizhisheng2.YueApplication;
 
 /**
@@ -7,9 +9,10 @@ import com.xk.tianlaizhisheng2.YueApplication;
  */
 public class PluginApplication
 {
-    public static void init()
+    public static void init(Context context)
     {
         YueApplication yueApplication=new YueApplication();
-        yueApplication.onCreate();
+        //yueApplication.onCreate();
+        yueApplication.initDB(context);
     }
 }

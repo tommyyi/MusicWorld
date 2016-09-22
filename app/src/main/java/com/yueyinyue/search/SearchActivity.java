@@ -41,6 +41,7 @@ public class SearchActivity extends BaseActivity implements SearchMusicViewImp
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setTheme(R.style.MyAppTheme);
         super.onCreate(savedInstanceState);
         mActivitySearchBinding=DataBindingUtil.setContentView(this,R.layout.activity_search);
         mLoadToast = new LoadToast(this).setText("").setTranslationY(100);

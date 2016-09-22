@@ -41,6 +41,7 @@ public class CpActivity extends BaseActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
+        setTheme(R.style.MyAppTheme);
         super.onCreate(savedInstanceState);
         mActivityCpBinding= DataBindingUtil.setContentView(this,R.layout.activity_cp);
         mLoadToast = new LoadToast(this).setText("").setTranslationY(100);

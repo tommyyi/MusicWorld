@@ -46,6 +46,7 @@ public class MyDownloadActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         mActivityMydownloadBinding= DataBindingUtil.setContentView(this,R.layout.activity_mydownload);
         mLoadToast = new LoadToast(this).setText("").setTranslationY(100);

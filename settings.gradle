@@ -1,4 +1,5 @@
 include ':app'
+include ':shell'
 //include ':CMMUSIC-JULETANG'
 //project(':CMMUSIC-JULETANG').projectDir = new File('D:/CODE/MusicAPP/CMMUSIC-SDK-Common-Demo-JULETANG')
 include ':CMMUSIC-2.0.2'

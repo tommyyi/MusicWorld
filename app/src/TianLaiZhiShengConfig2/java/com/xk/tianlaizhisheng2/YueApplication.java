@@ -1,5 +1,6 @@
 package com.xk.tianlaizhisheng2;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.cmsc.cmmusic.common.demo.MiguApplication;
@@ -33,6 +34,18 @@ public class YueApplication extends MiguApplication
         if (DbSession.musicDlRecordDaoSession == null)
         {
             MusicDlRecordDaoMaster.DevOpenHelper helper = new MusicDlRecordDaoMaster.DevOpenHelper(getApplicationContext(), "musicDlRecord", null);
+            SQLiteDatabase db = helper.getWritableDatabase();
+            // 注意：该数据库连接属于 MusicDlRecordDaoMaster，所以多个 Session 指的是相同的数据库连接。
+            MusicDlRecordDaoMaster musicDlRecordDaoMaster = new MusicDlRecordDaoMaster(db);
+            DbSession.musicDlRecordDaoSession = musicDlRecordDaoMaster.newSession();
+        }
+    }
+
+    public void initDB(Context context)
+    {
+        if (DbSession.musicDlRecordDaoSession == null)
+        {
+            MusicDlRecordDaoMaster.DevOpenHelper helper = new MusicDlRecordDaoMaster.DevOpenHelper(context, "musicDlRecord", null);
             SQLiteDatabase db = helper.getWritableDatabase();
             // 注意：该数据库连接属于 MusicDlRecordDaoMaster，所以多个 Session 指的是相同的数据库连接。
             MusicDlRecordDaoMaster musicDlRecordDaoMaster = new MusicDlRecordDaoMaster(db);
