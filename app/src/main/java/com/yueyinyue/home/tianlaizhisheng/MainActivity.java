@@ -55,6 +55,8 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setTheme(R.style.MyAppTheme);
+
         super.onCreate(savedInstanceState);
         mActivityjltHomeBinding = DataBindingUtil.setContentView(this,R.layout.activityjlt_home);
         mLoadToast = new LoadToast(this).setText("").setTranslationY(100);

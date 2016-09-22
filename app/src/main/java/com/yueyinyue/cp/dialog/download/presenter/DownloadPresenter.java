@@ -209,7 +209,7 @@ public class DownloadPresenter implements DownloadPresenterImpl
                 String musicAddress = null;
                 try
                 {
-                    musicAddress = "http://musicd.tianyigames.com/" + URLEncoder.encode(mMusicItemList.get(index).getSong(), "utf-8") + ".mp4";
+                    musicAddress = "http://musicd.tianyigames.com/" + URLEncoder.encode(mMusicItemList.get(index).getSong(), "utf-8")/* + ".mp4"*/;
                 }
                 catch (UnsupportedEncodingException e)
                 {
