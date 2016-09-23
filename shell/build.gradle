@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    signingConfigs {
+        keyconfig {
+            keyAlias 'xhzj'
+            keyPassword '123456'
+            storeFile file('D:/CODE/MusicAPP/MusicJuLeTang/音乐相关/keystore19.keystore')
+            storePassword '123456'
+        }
+        tianyi {
+            keyAlias 'android.keystore'
+            keyPassword '123456'
+            storeFile file('C:/Program Files/Java/jdk1.8.0_91/bin/android.keystore')
+            storePassword '123456'
+        }
+    }
+
+    productFlavors {
+        YueYinYueConfig {
+            minSdkVersion 10
+            applicationId 'com.yueyinyue.pleaseyou'
+            versionCode 27
+            versionName '1.4'
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.yueyinyue.pleaseyou.test'
+            signingConfig signingConfigs.tianyi
+        }
+
+        TianLaiZhiShengConfig {
+            minSdkVersion 10
+            applicationId 'com.xk.tianlaizhisheng'
+            versionCode 26
+            versionName '1.0.2'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.tianlaizhisheng.test'
+        }
+
+        TianLaiZhiShengConfig2 {
+            minSdkVersion 10
+            applicationId 'com.xk.tianlaizhisheng2'
+            versionCode 27
+            versionName '1.0.3'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.tianlaizhisheng.test'
+        }
+
+        JuLeTangConfig {
+            minSdkVersion 10
+            applicationId 'com.xk.m'
+            versionCode 25
+            versionName '1.0.1'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.m.test'
+        }
+
+        JuLeTangConfig2 {
+            minSdkVersion 10
+            applicationId 'com.xk.m2'
+            versionCode 25
+            versionName '1.0.1'
+            signingConfig signingConfigs.keyconfig
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testApplicationId 'com.xk.m2.test'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+}
