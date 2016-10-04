@@ -17,6 +17,7 @@ import com.xk.m.databinding.ActivityyyyHomeBinding;
 import com.yueyinyue.Model.EventBusMessage.PlayMusicMessage;
 import com.yueyinyue.Model.EventBusMessage.ViewPagersLoadingSuccessMessage;
 import com.yueyinyue.BaseActivity;
+import com.yueyinyue.Model.dao.Util;
 import com.yueyinyue.downloaded.MyDownloadActivity;
 import com.yueyinyue.search.SearchActivity;
 
@@ -51,14 +52,21 @@ public class MainActivity extends BaseActivity
         mActivityyyyHomeBinding.drawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
 
-        InitCmmInterface.initSDK(this);
-        mLoadToast.setText("咪咕用户初始化中...").show();
+        mLoadToast.setText("正在获取榜单").show();
+        InitCmmInterface.initSDK(MainActivity.this);
+        loadCategoryInfo();
+        miguUserInitialization();
+    }
+
+    private void miguUserInitialization()
+    {
+        //mLoadToast.setText("咪咕用户初始化中...").show();
         mCompositeSubscription.add(Observable.create(new Observable.OnSubscribe<String>()
         {
             @Override
             public void call(Subscriber<? super String> subscriber)
             {
-                Hashtable<String,String> hashTable=InitCmmInterface.initCmmEnv(getApplicationContext());
+                Hashtable<String,String> hashTable= InitCmmInterface.initCmmEnv(getApplicationContext());
                 String code=hashTable.get("code");
                 if(code.equals("0"))
                 {
@@ -82,16 +90,16 @@ public class MainActivity extends BaseActivity
             @Override
             public void onError(Throwable e)
             {
-                mLoadToast.error();
+                //mLoadToast.error();
             }
 
             @Override
             public void onNext(String s)
             {
-                mLoadToast.success();
+                //mLoadToast.success();
 
-                mLoadToast.setText("正在获取榜单").show();
-                loadCategoryInfo();
+                //mLoadToast.setText("正在获取榜单").show();
+                //loadCategoryInfo();
             }
         }));
     }
@@ -103,7 +111,8 @@ public class MainActivity extends BaseActivity
             @Override
             public void call(Subscriber<? super ChartListRsp> subscriber)
             {
-                mChartListRsp = MusicQueryInterface.getChartInfo(getApplicationContext(), 1, 20);
+                //mChartListRsp = MusicQueryInterface.getChartInfo(getApplicationContext(), 1, 20);
+                mChartListRsp=Util.getChartListCache(getApplicationContext());
                 if (mChartListRsp ==null|| mChartListRsp.getResCode()==null|| !mChartListRsp.getResCode().equals("000000"))
                     subscriber.onError(null);
                 else
@@ -126,6 +135,7 @@ public class MainActivity extends BaseActivity
             @Override
             public void onNext(ChartListRsp chartListRsp)
             {
+                //Util.cacheChartList(getApplicationContext(),chartListRsp);
                 mLoadToast.success();
                 showFragment(chartListRsp);
             }

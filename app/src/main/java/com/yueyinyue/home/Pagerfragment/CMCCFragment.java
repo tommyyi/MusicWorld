@@ -22,6 +22,7 @@ import com.yueyinyue.Model.Category;
 import com.yueyinyue.Model.EventBusMessage.MusicListRspMessage;
 import com.yueyinyue.Model.EventBusMessage.ViewPagersLoadingSuccessMessage;
 import com.xk.m.R;
+import com.yueyinyue.Model.dao.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +40,14 @@ import rx.subscriptions.CompositeSubscription;
 
 public class CMCCFragment extends Fragment
 {
-    private CompositeSubscription mCompositeSubscription=new CompositeSubscription();
+    private static final int NUMBER_PER_PAGE = 10;
+    private CompositeSubscription mCompositeSubscription = new CompositeSubscription();
     private int fragmentPosition;
     private ChartListRsp chartListRsp;
     private RecyclerView.Adapter mAdapter;
     private SwipyRefreshLayout swipyRefreshLayout;
     private int chartIndex = 0;
-    private int pageIndexInChart = 1;
+    private int pageIndexInChart = 2;
     public List<MusicInfo> musicInfoList = new ArrayList<MusicInfo>();
 
     public static CMCCFragment newInstance(int fragmentPosition, @NonNull ChartListRsp chartListRsp)
@@ -100,37 +102,7 @@ public class CMCCFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
         swipyRefreshLayout = (SwipyRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener()
-        {
-            @Override
-            public void onRefresh(SwipyRefreshLayoutDirection direction)
-            {
-                if (hasTravelAllSubChart())
-                {
-                    swipyRefreshLayout.setRefreshing(false);
-                    return;
-                }
-
-                mCompositeSubscription.add(Observable.create(new Observable.OnSubscribe<MusicListRspMessage>()
-                {
-                    @Override
-                    public void call(Subscriber<? super MusicListRspMessage> subscriber)
-                    {
-                        String chartCode = chartListRsp.getChartInfos().get(chartIndex).getChartCode();
-                        MusicListRsp musicListRsp = MusicQueryInterface.getMusicsByChartId(getActivity().getApplicationContext(), chartCode, pageIndexInChart, 20);
-                        MusicListRspMessage musicListRspMessage = new MusicListRspMessage(musicListRsp, fragmentPosition);
-                        subscriber.onNext(musicListRspMessage);
-                    }
-                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<MusicListRspMessage>()
-                {
-                    @Override
-                    public void call(MusicListRspMessage musicListRspMessage)
-                    {
-                        handleMusicListRsp(musicListRspMessage);
-                    }
-                }));
-            }
-        });
+        swipyRefreshLayout.setOnRefreshListener(new OnUserRefreshListener());
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setItemAnimator(new FlipInBottomXAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -151,7 +123,25 @@ public class CMCCFragment extends Fragment
             public void call(Subscriber<? super MusicListRspMessage> subscriber)
             {
                 String chartCode = chartListRsp.getChartInfos().get(chartIndex).getChartCode();
-                MusicListRsp musicListRsp = MusicQueryInterface.getMusicsByChartId(getActivity().getApplicationContext(), chartCode, pageIndexInChart, 20);
+                //MusicListRsp musicListRsp = MusicQueryInterface.getMusicsByChartId(getActivity().getApplicationContext(), chartCode, pageIndexInChart, NUMBER_PER_PAGE);
+                MusicListRsp musicListRsp=null;
+                if (fragmentPosition == 0)
+                {
+                    musicListRsp=Util.getMusic1Cache(getContext());
+                }
+                else if (fragmentPosition == 1)
+                {
+                    musicListRsp=Util.getMusic2Cache(getContext());
+                    musicListRsp.getMusics().remove(0);
+                }
+                else if (fragmentPosition == 2)
+                {
+                    musicListRsp=Util.getMusic3Cache(getContext());
+                }
+                else
+                {
+                    System.exit(0);
+                }
                 MusicListRspMessage musicListRspMessage = new MusicListRspMessage(musicListRsp, fragmentPosition);
                 subscriber.onNext(musicListRspMessage);
             }
@@ -218,6 +208,10 @@ public class CMCCFragment extends Fragment
         }
     }
 
+    /**
+     * 因为一个榜单下面有很多子榜单，在浏览的时候需要遍历子榜单
+     * 本函数功能是找到下一个子榜单，复位pageIndexInChart
+     */
     private void locateNextSubChart()
     {
         int size = chartListRsp.getChartInfos().size();
@@ -232,5 +226,37 @@ public class CMCCFragment extends Fragment
         }
 
         chartIndex = -1;
+    }
+
+    private class OnUserRefreshListener implements SwipyRefreshLayout.OnRefreshListener
+    {
+        @Override
+        public void onRefresh(SwipyRefreshLayoutDirection direction)
+        {
+            if (hasTravelAllSubChart())
+            {
+                swipyRefreshLayout.setRefreshing(false);
+                return;
+            }
+
+            mCompositeSubscription.add(Observable.create(new Observable.OnSubscribe<MusicListRspMessage>()
+            {
+                @Override
+                public void call(Subscriber<? super MusicListRspMessage> subscriber)
+                {
+                    String chartCode = chartListRsp.getChartInfos().get(chartIndex).getChartCode();
+                    MusicListRsp musicListRsp = MusicQueryInterface.getMusicsByChartId(getActivity().getApplicationContext(), chartCode, pageIndexInChart, NUMBER_PER_PAGE);
+                    MusicListRspMessage musicListRspMessage = new MusicListRspMessage(musicListRsp, fragmentPosition);
+                    subscriber.onNext(musicListRspMessage);
+                }
+            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<MusicListRspMessage>()
+            {
+                @Override
+                public void call(MusicListRspMessage musicListRspMessage)
+                {
+                    handleMusicListRsp(musicListRspMessage);
+                }
+            }));
+        }
     }
 }

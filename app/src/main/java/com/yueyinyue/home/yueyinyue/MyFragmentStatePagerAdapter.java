@@ -35,10 +35,10 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         {
             return CMCCFragment.newInstance(fragmentPosition, mChartListRsp);
         }
-        else if(fragmentPosition == Category.cmcc.length)
-        {
-            return AlbumFragment.newInstance();
-        }
+        //else if(fragmentPosition == Category.cmcc.length)
+        //{
+        //    return AlbumFragment.newInstance();
+        //}
         else
         {
             return CpFragment.newInstance();
@@ -63,16 +63,16 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
 
             if (includecp)
             {
-                return Category.cmcc.length + 1+1;
+                return Category.cmcc.length + 1/*+1*/;
             }
             else
             {
-                return Category.cmcc.length+1;
+                return Category.cmcc.length/*+1*/;
             }
         }
         else
         {
-            return Category.cmcc.length + 1+1;
+            return Category.cmcc.length + 1/*+1*/;
         }
     }
 
@@ -83,10 +83,10 @@ class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         {
             return Category.cmcc[fragmentPosition];
         }
-        else if(fragmentPosition == Category.cmcc.length)
-        {
-            return "数字专辑";
-        }
+        //else if(fragmentPosition == Category.cmcc.length)
+        //{
+        //    return "数字专辑";
+        //}
         else
         {
             return "悦音乐专属";

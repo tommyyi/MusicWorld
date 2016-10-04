@@ -151,18 +151,19 @@ android
                                     INCLUDECP      : "false"]
         }
     }
-    /*applicationVariants.all({ variant ->
+    applicationVariants.all({ variant ->
         variant.outputs.each({ output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk'))
             {
                 // 输出apk名称为app-YueYinYueConfig-release_v1.3_2016-08-05.apk
-                def fileName = "_v${variant.productFlavors[0].versionName}_${releaseTime()}.apk"
+//                def fileName = "_v${variant.productFlavors[0].versionName}_${releaseTime()}.apk"
+                def fileName = "_v${variant.productFlavors[0].versionName}${releaseTime()}.apk"
                 output.outputFile = new File(outputFile.parent, outputFile.name.replace("app-", "").replace("Config", "").replace(".apk", fileName))
                 //changeManifest(output.outputFile.name)
             }
         })
-    })*/
+    })
 }
 
 dependencies {
@@ -233,7 +234,8 @@ dependencies {
 
 String releaseTime()
 {
-    return new Date().format("MMdd", TimeZone.getTimeZone("Asia/Shanghai"))
+//    return new Date().format("MMdd", TimeZone.getTimeZone("Asia/Shanghai"))
+    return "";
 }
 
 def buildTime()
