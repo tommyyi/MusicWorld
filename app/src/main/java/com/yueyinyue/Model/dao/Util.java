@@ -2,6 +2,7 @@ package com.yueyinyue.Model.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.cmsc.cmmusic.common.data.ChartInfo;
 import com.cmsc.cmmusic.common.data.ChartListRsp;
@@ -29,6 +30,7 @@ public class Util
 {
 
     private static final String DB_NAME = "musicCache";
+    private static long beginningTime;
 
     public static ChartListRsp getChartListCache(Context context)
     {
@@ -325,5 +327,15 @@ public class Util
         music.setSongListenDir(musicInfo.getSongListenDir());
         music.setLrcDir(musicInfo.getLrcDir());
         music.setHasDolby(musicInfo.getHasDolby());
+    }
+
+    public static void start()
+    {
+        beginningTime = System.currentTimeMillis();
+    }
+
+    public static void end(Context context,String tag)
+    {
+        Log.e("duration",tag+":"+(System.currentTimeMillis()-beginningTime)+"ms");
     }
 }
